@@ -1,6 +1,6 @@
+# theme_manager.py
+
 import panel as pn
-import json
-import os
 from pathlib import Path
 
 class ThemeManager:
@@ -20,10 +20,8 @@ class ThemeManager:
         
     def _apply_theme(self):
         """Apply dark grey theme with good contrast"""
-        # Set Panel's theme to dark
         pn.state.theme = 'dark'
         
-        # Apply custom CSS for better contrast
         custom_css = """
         :root {
             --background-color: #2b2b2b;
@@ -123,7 +121,6 @@ class ThemeManager:
         Returns:
             panel.pane.HTML: A Panel HTML widget containing the logo
         """
-        # Create HTML for the logo with proper sizing
         height_style = f"height: {height}px;" if height else "height: auto;"
         logo_html = f"""
         <div style="text-align: center; margin: 10px 0;">
@@ -143,5 +140,4 @@ class ThemeManager:
         """
         return pn.pane.HTML(header_html)
 
-# Create a singleton instance
 theme_manager = ThemeManager() 
