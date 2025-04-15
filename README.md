@@ -1,4 +1,9 @@
-# Change Request Management System
+<div align="center">
+    <img src="frontend/assets/changegenius-banner.png" alt="REACHER logo">
+</div>
+<br>
+
+# A Change Request Management System
 
 A web-based application built with Python and Panel for submitting and querying change requests, integrated with a backend database and AI-powered query processing.
 
