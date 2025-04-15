@@ -9,7 +9,7 @@ import re
 matplotlib.use('agg')
 
 # Initialize Panel extension with dark theme
-pn.extension(theme="dark")
+pn.extension(theme="dark", notifications=True)
 
 # Global variable to store the last DataFrame
 last_df = None

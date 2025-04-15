@@ -8,7 +8,7 @@ import time
 from dotenv import load_dotenv
 import panel as pn
 
-pn.extension(theme="dark", notifications=True)
+pn.extension(notifications=True)
 
 load_dotenv()
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
