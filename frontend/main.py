@@ -9,9 +9,13 @@ pn.extension()
 
 pn.state.theme = theme_manager.get_theme()
 
-header = pn.Row(
-    pn.pane.Markdown("# ChangeGenius", styles={'color': '#1976D2'}),
-    styles={'background': '#f8f9fa', 'padding': '10px'}
+header = pn.Column(
+    pn.Row(
+        pn.HSpacer(),
+        pn.pane.PNG("assets/changegenius+modus21-banner.png", width=800), 
+        pn.HSpacer()
+    ),
+    pn.Spacer(height=50)
 )
 
 form_submission_tab = crp_form.get_layout()
