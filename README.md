@@ -3,6 +3,12 @@
 </div>
 <br>
 
+[![](https://img.shields.io/badge/@thejoshbq-grey?style=for-the-badge&logo=github)](https://github.com/thejoshbq) [![](https://img.shields.io/badge/@kev_devmethod-grey?style=for-the-badge&logo=github)](https://github.com/kev-devmethod) [![](https://img.shields.io/badge/@cwaded-grey?style=for-the-badge&logo=github)](https://github.com/cwaded) [![](https://img.shields.io/badge/@brentdanielscodes-grey?style=for-the-badge&logo=github)](https://github.com/brentdanielscodes)
+
+<br>
+
+---
+
 # A Change Request Management System
 
 A web-based application built with Python and Panel for submitting and querying change requests, integrated with a backend database and AI-powered query processing.
