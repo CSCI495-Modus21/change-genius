@@ -1,8 +1,10 @@
+# crp_form.py
+
 import panel as pn
 import requests
 import random
 
-pn.extension(theme="dark", notifications=True)
+pn.extension(notifications=True)
 
 change_request_api_url = "http://127.0.0.1:8000/change_requests"
 

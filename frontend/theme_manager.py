@@ -1,6 +1,6 @@
+# theme_manager.py
+
 import panel as pn
-import json
-import os
 from pathlib import Path
 
 class ThemeManager:
@@ -14,90 +14,73 @@ class ThemeManager:
         return cls._instance
 
     def _initialize(self):
-        """Initialize theme manager with dark grey theme"""
         self.current_theme = 'dark'
         self._apply_theme()
         
     def _apply_theme(self):
-        """Apply dark grey theme with good contrast"""
-        # Set Panel's theme to dark
         pn.state.theme = 'dark'
-        
-        # Apply custom CSS for better contrast
+            
         custom_css = """
         :root {
-            --background-color: #2b2b2b;
-            --text-color: #ffffff;
-            --accent-color: #4a9eff;
+            --background-color: #f3f4f6; /* Light grey */
+            --text-color: #1f2937; /* Dark grey */
+            --accent-color: #e11d48; /* Red-pink */
         }
-        
+
         body {
             background-color: var(--background-color) !important;
             color: var(--text-color) !important;
         }
-        
+
         .panel-widget-box {
             background-color: var(--background-color) !important;
             color: var(--text-color) !important;
         }
-        
+
         .panel-input {
-            background-color: #3b3b3b !important;
+            background-color: #ffffff !important; /* White inputs */
             color: var(--text-color) !important;
         }
-        
+
         .panel-button {
             background-color: var(--accent-color) !important;
             color: #ffffff !important;
         }
-        
+
         .panel-button:hover {
-            background-color: #5aaeff !important;
+            background-color: #f43f5e !important; /* Lighter red-pink */
             color: #ffffff !important;
         }
-        
+
         .panel-tabs {
-            background-color: #3b3b3b !important;
+            background-color: #e5e7eb !important; /* Light grey tabs */
         }
-        
+
         .panel-tab {
             color: var(--text-color) !important;
         }
-        
+
         .panel-tab.active {
             background-color: var(--accent-color) !important;
             color: #ffffff !important;
         }
 
-        /* Additional styles to ensure text is white */
         .panel-widget-box * {
-            color: #ffffff !important;
+            color: var(--text-color) !important;
         }
 
-        .panel-input input {
-            color: #ffffff !important;
-        }
-
-        .panel-select select {
-            color: #ffffff !important;
-        }
-
+        .panel-input input,
+        .panel-select select,
         .panel-textarea textarea {
-            color: #ffffff !important;
+            color: var(--text-color) !important;
         }
 
-        /* Header styles */
         .app-header {
-            background-color: #1a1a1a;
+            background-color: #ffffff;
             padding: 20px;
             text-align: center;
             border-bottom: 2px solid var(--accent-color);
-        }
-
-        .app-header img {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 10px;
+            color: var(--text-color);
         }
         """
         
@@ -123,7 +106,6 @@ class ThemeManager:
         Returns:
             panel.pane.HTML: A Panel HTML widget containing the logo
         """
-        # Create HTML for the logo with proper sizing
         height_style = f"height: {height}px;" if height else "height: auto;"
         logo_html = f"""
         <div style="text-align: center; margin: 10px 0;">
@@ -143,5 +125,4 @@ class ThemeManager:
         """
         return pn.pane.HTML(header_html)
 
-# Create a singleton instance
 theme_manager = ThemeManager() 

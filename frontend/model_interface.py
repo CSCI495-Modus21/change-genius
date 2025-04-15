@@ -1,3 +1,5 @@
+# model_interface.py
+
 import sqlite3
 import pandas as pd
 import requests
@@ -6,7 +8,7 @@ import time
 from dotenv import load_dotenv
 import panel as pn
 
-pn.extension(theme="dark", notifications=True)
+pn.extension(notifications=True)
 
 load_dotenv()
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
@@ -92,6 +94,7 @@ def generate_response(question):
         response.raise_for_status()
         result = response.json()
         answer = result.get("choices", [{}])[0].get("text", "").strip()
+        chat_interface.placeholder_text = ""
     except requests.RequestException as e:
         answer = f"API error: {e}"
         if hasattr(e.response, 'text'):
@@ -105,9 +108,7 @@ def generate_response(question):
     return answer
 
 def chat_callback(contents, user, instance):
-    instance.placeholder_text = "*(generating response...)*"
     response = generate_response(contents)
-    instance.placeholder_text = "*(thinking...)*"
     return response
 
 chat_interface = pn.chat.ChatInterface(
@@ -116,7 +117,6 @@ chat_interface = pn.chat.ChatInterface(
     show_clear=False,
     show_undo=False,
     height=600,
-    placeholder_text="*(thinking...)*",
     name="Database Query Chat",
     sizing_mode="stretch_width"
 )
